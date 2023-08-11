@@ -23,7 +23,7 @@
     <div class="content">
         <div class="assignment-form">
             <h2>Assignment Submission</h2>
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" action="{{ url_for('sassignment')}}" enctype="multipart/form-data">
                 <label>Assignment 1:</label>
                 <input type="file" name="file1" accept=".pdf">
                 <label>Assignment 2:</label>
