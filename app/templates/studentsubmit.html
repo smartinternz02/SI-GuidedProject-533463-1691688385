@@ -45,11 +45,11 @@
                     <th>Submission Time</th>
                     <th>Marks</th>
                 </tr>
-                {% for index, time, marks in datetime|zip_longest([], [], fillvalue='') %}
+                {% for index, time in datetime %}
                 <tr>
-                    <td>Assignment {{ loop.index }}</td>
+                    <td>Assignment {{ index + 1 }}</td>
                     <td>{{ time }}</td>
-                    <td>{{ marks }}</td>
+                    <td>{{ marks[index] }}</td>
                 </tr>
                 {% endfor %}
             </table>
