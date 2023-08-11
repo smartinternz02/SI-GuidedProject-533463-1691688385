@@ -47,12 +47,13 @@ body {
     width: 100%;
     max-width: 400px;
     padding: 20px;
-    background-color: #f2f2f2;
+    background-color: #464646;
     margin-top: 20px;
 }
 
 .registration-form label {
     font-family: "Roboto", sans-serif;
+    color: #fff;
     font-size: 14px;
 }
 
@@ -60,7 +61,7 @@ body {
 .registration-form select {
     font-family: "Roboto", sans-serif;
     outline: 0;
-    background: #ababab; /* Slightly darker background color */
+    background: #c7c7c7; /* Slightly darker background color */
     width: 100%;
     border: 0;
     margin: 0 0 15px;
@@ -74,14 +75,14 @@ body {
     font-size: 14px;
     padding: 10px 15px;
     background-color: #1a237e;
-    color: #fff;
+    color: #ffffff;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .registration-form button:hover {
-    background-color: #34495e;
+    background-color: #135fab;
 }
 
 .message {
