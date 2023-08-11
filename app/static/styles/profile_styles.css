@@ -94,3 +94,31 @@ body {
     color: green;
     margin-top: 10px;
 }
+
+
+.assignment-form form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.assignment-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.assignment-form input[type="file"] {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.assignment-form button {
+    display: block;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}

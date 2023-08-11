@@ -24,12 +24,14 @@
         <div class="assignment-form">
             <h2>Assignment Submission</h2>
             <form method="post" enctype="multipart/form-data">
-                {% for assignment_num in range(1, 5) %}
-                <div class="form">
-                    <label for="file{{ assignment_num }}">Assignment {{ assignment_num }}:</label>
-                    <input type="file" id="file{{ assignment_num }}" name="file{{ assignment_num }}" accept=".pdf" required>
-                </div>
-                {% endfor %}
+                <label>Assignment 1:</label>
+                <input type="file" name="file1" accept=".pdf" required>
+                <label>Assignment 2:</label>
+                <input type="file" name="file2" accept=".pdf" required>
+                <label>Assignment 3:</label>
+                <input type="file" name="file3" accept=".pdf" required>
+                <label>Assignment 4:</label>
+                <input type="file" name="file4" accept=".pdf" required>
                 <button type="submit">Submit</button>
             </form>
             <p>{{ msg }}</p>
