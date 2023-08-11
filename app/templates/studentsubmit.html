@@ -24,18 +24,21 @@
         <div class="assignment-form">
             <h2>Assignment Submission</h2>
             <form method="post" enctype="multipart/form-data">
-                {% for index in range(1, max_assignments + 1) %}
-                    <label>Assignment {{ index }}:</label>
-                    {% if submitted[index - 1] %}
-                        <p>Submitted</p>
-                    {% else %}
-                        <input type="file" name="file{{ index }}" accept=".pdf">
-                        <button type="submit" name="submit" value="{{ index }}">Submit</button>
-                    {% endif %}
-                {% endfor %}
+                <label>Assignment 1:</label>
+                <input type="file" name="file1" accept=".pdf">
+                <label>Assignment 2:</label>
+                <input type="file" name="file2" accept=".pdf">
+                <label>Assignment 3:</label>
+                <input type="file" name="file3" accept=".pdf">
+                <label>Assignment 4:</label>
+                <input type="file" name="file4" accept=".pdf">
+                <label>Assignment 5:</label>
+                <input type="file" name="file5" accept=".pdf">
+                <button type="submit">Submit</button>
             </form>
             <p>{{ msg }}</p>
         </div>
+        
 
         <div class="submission-history">
             <h2>Submission History</h2>
