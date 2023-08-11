@@ -313,7 +313,7 @@ def logout():
     session.pop('loggedin', None)
     session.pop('id', None)
     session.pop('username', None)
-    return render_template("logout.html")
+    return render_template("login.html")
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
