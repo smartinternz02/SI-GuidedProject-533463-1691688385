@@ -49,6 +49,7 @@ body {
     padding: 20px;
     background-color: #464646;
     margin-top: 20px;
+    border-radius: 10px;
 }
 
 .registration-form label {
@@ -61,13 +62,14 @@ body {
 .registration-form select {
     font-family: "Roboto", sans-serif;
     outline: 0;
-    background: #c7c7c7; /* Slightly darker background color */
+    background: #fffefe; /* Slightly darker background color */
     width: 100%;
     border: 0;
     margin: 0 0 15px;
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
+    border-radius: 5px;
 }
 
 .registration-form button {
@@ -79,10 +81,11 @@ body {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
+    border-radius: 5px;
 }
 
 .registration-form button:hover {
-    background-color: #135fab;
+    background-color: #0883ff;
 }
 
 .message {
