@@ -40,3 +40,58 @@ body {
 .content {
     padding: 20px;
 }
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registration-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    margin-top: 20px;
+}
+
+.registration-form label {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+}
+
+.registration-form input,
+.registration-form select {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.registration-form button {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    padding: 10px 15px;
+    background-color: #1a237e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.registration-form button:hover {
+    background-color: #34495e;
+}
+
+.message {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: green;
+    margin-top: 10px;
+}
