@@ -14,13 +14,20 @@
             <img src="{{ url_for('static', filename='admin_logo.png') }}" alt="Admin Logo">
         </div>
         <div class="nav-links">
-            <a href="#" class="profile-button">Profile</a>
-            <a href="{{ url_for('register') }}" class="register-button">Register</a>
+            <a href="{{ url_for('aprofile') }}" class="profile-button">Profile</a>
+            <a href="{{ url_for('signup') }}" class="register-button">Register</a>
             <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
         </div>
     </div>
     <div class="content">
-        <!-- The content will be dynamically updated based on button clicks -->
+        <h2>Admin Profile</h2>
+        <div class="admin-details">
+            <p><strong>Name:</strong> {{ admin_name }}</p>
+            <p><strong>Username:</strong> {{ admin_username }}</p>
+            <p><strong>Email:</strong> {{ admin_email }}</p>
+            <p><strong>Role:</strong> {{ admin_role }}</p>
+            <!-- You can add more details here as needed -->
+        </div>
     </div>
 </body>
 </html>

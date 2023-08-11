@@ -77,7 +77,7 @@ def login():
             elif r['ROLE'] == 2:
                 print("FACULTY")
                 return render_template("facultyprofile.html", msg=msg, user=email, name=Name, role="FACULTY", username=Username, email=email)
-            elif r['ROLE'] == 0:
+            else:
                 return render_template("adminprofile.html", msg=msg, user=email, name=Name, role="ADMIN", username=Username, email=email)
         else:
             msg = "Incorrect Email/Password!"
