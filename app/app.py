@@ -178,11 +178,11 @@ def sassignment():
 
             if f.filename != '':
                 basepath = os.path.dirname(__file__)
-                filepath = os.path.join(basepath, 'uploads', u + x + ".pdf")
+                filepath = os.path.join(basepath, 'uploads', u+str(x)+".pdf")
                 f.save(filepath)
 
                 cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT)
-                cos.upload_file(Filename=filepath, Bucket='studentassignment', Key=u + x + ".pdf")
+                cos.upload_file(Filename=filepath, Bucket='studentassignment', Key=u+str(x)+".pdf")
                 
                 ts = datetime.datetime.now()
                 t = ts.strftime("%Y-%m-%d %H:%M:%S")
@@ -210,7 +210,7 @@ def sassignment():
 
         msg = "Uploading Successful"
         return render_template("studentsubmit.html", msg=msg, datetime=subtime, marks=ma)
-    
+        continue
     return render_template("studentsubmit.html", datetime=subtime, marks=ma)
 
 
