@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin's Profile</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Course Project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/styles/adminprofile_styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='admin_logo.png') }}" alt="Admin Logo">
+        </div>
+        <div class="nav-links">
+            <a href="#" class="profile-button">Profile</a>
+            <a href="{{ url_for('register') }}" class="register-button">Register</a>
+            <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+        </div>
+    </div>
+    <div class="content">
+        <!-- The content will be dynamically updated based on button clicks -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Student List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/login/student">Student Login</a></li>
+                <li><a href="/login/professor">Professor Login</a></li>
+                <li><a href="/login/admin">Admin Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Student List for Course: Computer Science 101</h1>
+        <ul class="student-list">
+            <li>
+                <span class="student-name">John Doe</span>
+                <a href="/facultystusubmissions/1">Submissions</a>
+            </li>
+            <li>
+                <span class="student-name">Jane Smith</span>
+                <a href="/facultystusubmissions/2">Submissions</a>
+            </li>
+            <!-- Add more student entries as needed -->
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2023 Smart Assignment</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Marks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/login/student">Student Login</a></li>
+                <li><a href="/login/professor">Professor Login</a></li>
+                <li><a href="/login/admin">Admin Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Faculty Marks</h1>
+        <h2>Student: John Doe</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Assignment</th>
+                    <th>Submission Date</th>
+                    <th>Download</th>
+                    <th>Marks</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Assignment 1</td>
+                    <td>August 10, 2023 10:30 AM</td>
+                    <td><a href="{{ url_for('static', filename='uploads/assignment1.pdf') }}" target="_blank">Download</a></td>
+                    <td><input type="number" min="0" max="100"></td>
+                    <td><button>Update</button></td>
+                </tr>
+                <!-- Add more assignment entries and marks as needed -->
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; 2023 Smart Assignment</p>
+    </footer>
+</body>
+</html>
