@@ -210,7 +210,7 @@ def sassignment():
 
         msg = "Uploading Successful"
         return render_template("studentsubmit.html", msg=msg, datetime=subtime, marks=ma)
-        continue
+        
     return render_template("studentsubmit.html", datetime=subtime, marks=ma)
 
 
