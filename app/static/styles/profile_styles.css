@@ -38,11 +38,6 @@ body {
 }
 
 .content {
-    padding: 20px;
-}
-
-
-.content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,22 +54,19 @@ body {
 .registration-form label {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    display: block;
-    margin-bottom: 5px;
 }
 
 .registration-form input,
 .registration-form select {
     font-family: "Roboto", sans-serif;
     outline: 0;
-    background: #f2f2f2;
+    background: #ababab; /* Slightly darker background color */
     width: 100%;
     border: 0;
-    margin: 0;
-    padding: 10px 0;
+    margin: 0 0 15px;
+    padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
-    border-bottom: 1px solid #888;
 }
 
 .registration-form button {
