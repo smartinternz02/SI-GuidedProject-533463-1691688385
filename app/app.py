@@ -18,7 +18,7 @@ print(conn)
 print("Connection Successfull")
 
 COS_ENDPOINT = "https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints"
-COS_API_KEY_ID = "f0J8CxlGgT9pzUFlJUWxx8OScZ5VGuLHrJVsshRAwV4W"
+COS_API_KEY_ID = "F_HIJtOkhHWtCWsFqY7SgfnaYdugz6uOFEScSnbEbXS8"
 COS_INSTANCE_CRN = "crn:v1:bluemix:public:cloud-object-storage:global:a/ce2c0eb98c754e8287f7b5f407af741b:b36b98f3-0bcb-44ee-a9b1-df2ea4c91dba::"
 
 @app.route("/")
