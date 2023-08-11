@@ -73,10 +73,10 @@ def login():
             print(r)
             if r['ROLE'] == 1:
                 print("STUDENT")
-                return render_template("studentprofile.html", msg=msg, user=email, name=Name, role="STUDENT", username=Username, email=email)
+                return render_template("studentprofile.html", msg=msg, user=email, name=Name, role="STUDENT", username=Username, password=password, email=email)
             elif r['ROLE'] == 2:
                 print("FACULTY")
-                return render_template("facultyprofile.html", msg=msg, user=email, name=Name, role="FACULTY", username=Username, email=email)
+                return render_template("facultyprofile.html", msg=msg, user=email, name=Name, role="FACULTY", username=Username, password=password, email=email)
             else:
                 return render_template("adminprofile.html", msg=msg, user=email, name=Name, role="ADMIN", username=Username, password=password, email=email)
         else:
