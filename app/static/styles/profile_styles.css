@@ -59,6 +59,8 @@ body {
 .registration-form label {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
 }
 
 .registration-form input,
@@ -68,10 +70,11 @@ body {
     background: #f2f2f2;
     width: 100%;
     border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
+    margin: 0;
+    padding: 10px 0;
     box-sizing: border-box;
     font-size: 14px;
+    border-bottom: 1px solid #888;
 }
 
 .registration-form button {
