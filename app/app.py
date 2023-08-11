@@ -182,6 +182,7 @@ def sassignment():
                 f.save(filepath)
 
                 cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT)
+                print(cos)
                 cos.upload_file(Filename=filepath, Bucket='prashantstudent', Key=u + str(x) + ".pdf")
                 
                 ts = datetime.datetime.now()
