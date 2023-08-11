@@ -217,8 +217,8 @@ def sassignment():
             continue
     return render_template("studentsubmit.html", datetime=subtime, marks=ma)
 
-@app.route("/facultymarks")
-def facultymarks():
+@app.route("/studentlist")
+def studentlist():
     data = []
     sql = "SELECT USERNAME from REGISTER WHERE Role=1"
     stmt = ibm_db.prepare(conn, sql)

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Admin's Profile</title>
+    <title>Faculty's Profile</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Course Project">
@@ -11,16 +11,16 @@
 <body>
     <div class="navbar">
         <div class="logo">
-            <img src="{{ url_for('static', filename='admin_logo.png') }}" alt="Admin Logo">
+            <img src="{{ url_for('static', filename='faculty_logo_1.png') }}" alt="Admin Logo">
         </div>
         <div class="nav-links">
-            <a href="{{ url_for('aprofile') }}" class="profile-button">Profile</a>
-            <a href="{{ url_for('signup') }}" class="register-button">Register</a>
+            <a href="{{ url_for('fprofile') }}" class="profile-button">Profile</a>
+            <a href="{{ url_for('studentlist') }}" class="register-button">Marks</a>
             <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
         </div>
     </div>
     <div class="content">
-        <h2>Admin Profile</h2>
+        <h2>Faculty Profile</h2>
         <div class="admin-details">
             <p><strong>Name:</strong> {{ name }}</p>
             <p><strong>Username:</strong> {{ username }}</p>
