@@ -128,7 +128,7 @@ def signup():
                         "subject": "student Account Details"
                     }
                 ],
-                "from": {"email": "<Enter Your Sender Email ID"},
+                "from": {"email": "Prashant@university.com"},
                 "content": [
                     {
                         "type": "text/plain",

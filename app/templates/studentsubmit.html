@@ -1,40 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Submit Assignments</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Assignment Submission</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Course Project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/styles/profile_styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/login/student">Student Login</a></li>
-                <li><a href="/login/professor">Professor Login</a></li>
-                <li><a href="/login/admin">Admin Login</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Submit Assignments</h1>
-        <p>Here is the list of assignments you need to submit:</p>
-        <ul class="assignment-list">
-            <li>
-                <span class="assignment-title">Assignment 1:</span>
-                <span class="due-date">Due Date: August 15, 2023</span>
-                <form action="/submit_assignment" method="post" enctype="multipart/form-data">
-                    <input type="file" name="assignment_file" accept=".pdf" required>
-                    <button type="submit">Submit</button>
-                </form>
-                <span class="submit-time">Submitted on: August 10, 2023 10:30 AM</span>
-                <span class="marks">Marks: None</span>
-            </li>
-            <!-- Add more assignment entries as needed -->
-        </ul>
-    </main>
-    <footer>
-        <p>&copy; 2023 Smart Assignment</p>
-    </footer>
+    <div class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='student_logo.png') }}" alt="Admin Logo">
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('sprofile') }}" class="profile-button">Profile</a>
+            <a href="{{ url_for('sassignment') }}" class="register-button">Assignment</a>
+            <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="assignment-form">
+            <h2>Assignment Submission</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% for assignment_num in range(1, 5) %}
+                <div class="form">
+                    <label for="file{{ assignment_num }}">Assignment {{ assignment_num }}:</label>
+                    <input type="file" id="file{{ assignment_num }}" name="file{{ assignment_num }}" accept=".pdf" required>
+                </div>
+                {% endfor %}
+                <button type="submit">Submit</button>
+            </form>
+            <p>{{ msg }}</p>
+        </div>
+
+        <div class="submission-history">
+            <h2>Submission History</h2>
+            <table>
+                <tr>
+                    <th>Assignment</th>
+                    <th>Submission Time</th>
+                    <th>Marks</th>
+                </tr>
+                {% for index, time, marks in datetime|zip_longest([], [], fillvalue='') %}
+                <tr>
+                    <td>Assignment {{ loop.index }}</td>
+                    <td>{{ time }}</td>
+                    <td>{{ marks }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 </body>
 </html>
