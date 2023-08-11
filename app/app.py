@@ -78,7 +78,7 @@ def login():
                 print("FACULTY")
                 return render_template("facultyprofile.html", msg=msg, user=email, name=Name, role="FACULTY", username=Username, email=email)
             else:
-                return render_template("adminprofile.html", msg=msg, user=email, name=Name, role="ADMIN", username=Username, email=email)
+                return render_template("adminprofile.html", msg=msg, user=email, name=Name, role="ADMIN", username=Username, password=password, email=email)
         else:
             msg = "Incorrect Email/Password!"
         
