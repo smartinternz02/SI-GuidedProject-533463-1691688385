@@ -177,40 +177,40 @@ def sassignment():
     if request.method == "POST":
         for x in range(1, 6):  # Changed range to 1-6 for all 5 assignments
             y = "file" + str(x)
-            f = request.files[y]
-
-            if f.filename != '':
-                basepath = os.path.dirname(__file__)
-                filepath = os.path.join(basepath, 'uploads', u + str(x) + ".pdf")
-                f.save(filepath)
-                print(filepath)
-                cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT)
-                print(cos)
-                cos.upload_file(Filename=filepath, Bucket=BUCKET_NAME, Key=u + str(x) + ".pdf")
-                
-                ts = datetime.datetime.now()
-                t = ts.strftime("%Y-%m-%d %H:%M:%S")
-                sql1 = "SELECT * FROM SUBMIT WHERE STUDENTNAME = ? AND ASSIGNMENTNUM = ?"
-                stmt = ibm_db.prepare(conn, sql1)
-                ibm_db.bind_param(stmt, 1, u)
-                ibm_db.bind_param(stmt, 2, x)
-                ibm_db.execute(stmt)
-                acc = ibm_db.fetch_assoc(stmt)
-                
-                if acc == False:
-                    sql = "INSERT into SUBMIT (STUDENTNAME, ASSIGNMENTNUM, SUBMITTIME) values (?,?,?)"
-                    stmt = ibm_db.prepare(conn, sql)
+            if y in request.files:
+                f = request.files[y]
+                if f.filename != '':
+                    basepath = os.path.dirname(__file__)
+                    filepath = os.path.join(basepath, 'uploads', u + str(x) + ".pdf")
+                    f.save(filepath)
+                    print(filepath)
+                    cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT)
+                    print(cos)
+                    cos.upload_file(Filename=filepath, Bucket=BUCKET_NAME, Key=u + str(x) + ".pdf")
+                    
+                    ts = datetime.datetime.now()
+                    t = ts.strftime("%Y-%m-%d %H:%M:%S")
+                    sql1 = "SELECT * FROM SUBMIT WHERE STUDENTNAME = ? AND ASSIGNMENTNUM = ?"
+                    stmt = ibm_db.prepare(conn, sql1)
                     ibm_db.bind_param(stmt, 1, u)
                     ibm_db.bind_param(stmt, 2, x)
-                    ibm_db.bind_param(stmt, 3, t)
                     ibm_db.execute(stmt)
-                else:
-                    sql = "UPDATE SUBMIT SET SUBMITTIME = ? WHERE STUDENTNAME = ? and ASSIGNMENTNUM = ?"
-                    stmt = ibm_db.prepare(conn, sql)
-                    ibm_db.bind_param(stmt, 1, t)
-                    ibm_db.bind_param(stmt, 2, u)
-                    ibm_db.bind_param(stmt, 3, x)
-                    ibm_db.execute(stmt)
+                    acc = ibm_db.fetch_assoc(stmt)
+                    
+                    if acc == False:
+                        sql = "INSERT into SUBMIT (STUDENTNAME, ASSIGNMENTNUM, SUBMITTIME) values (?,?,?)"
+                        stmt = ibm_db.prepare(conn, sql)
+                        ibm_db.bind_param(stmt, 1, u)
+                        ibm_db.bind_param(stmt, 2, x)
+                        ibm_db.bind_param(stmt, 3, t)
+                        ibm_db.execute(stmt)
+                    else:
+                        sql = "UPDATE SUBMIT SET SUBMITTIME = ? WHERE STUDENTNAME = ? and ASSIGNMENTNUM = ?"
+                        stmt = ibm_db.prepare(conn, sql)
+                        ibm_db.bind_param(stmt, 1, t)
+                        ibm_db.bind_param(stmt, 2, u)
+                        ibm_db.bind_param(stmt, 3, x)
+                        ibm_db.execute(stmt)
 
         msg = "Uploading Successful"
         return render_template("studentsubmit.html", msg=msg, datetime=subtime, marks=ma)
