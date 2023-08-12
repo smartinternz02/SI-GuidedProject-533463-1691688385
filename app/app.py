@@ -172,6 +172,8 @@ def sassignment():
     print(subtime)
     print(ma)
     
+    submitted = [True if t else False for t in subtime]
+
     if request.method == "POST":
         for x in range(1, 6):  # Changed range to 1-6 for all 5 assignments
             y = "file" + str(x)
@@ -213,7 +215,7 @@ def sassignment():
         msg = "Uploading Successful"
         return render_template("studentsubmit.html", msg=msg, datetime=subtime, marks=ma)
     
-    return render_template("studentsubmit.html", datetime=subtime, marks=ma)
+    return render_template("studentsubmit.html", submitted=submitted, datetime=subtime, marks=ma)
 
 
 @app.route("/studentlist")
