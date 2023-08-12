@@ -23,19 +23,59 @@
     <div class="content">
         <div class="assignment-form">
             <h2>Assignment Submission</h2>
-            <form method="post" action="{{ url_for('sassignment')}}" enctype="multipart/form-data">
-                <label>Assignment 1:</label>
-                <input type="file" name="file1" accept=".pdf">
-                <label>Assignment 2:</label>
-                <input type="file" name="file2" accept=".pdf">
-                <label>Assignment 3:</label>
-                <input type="file" name="file3" accept=".pdf">
-                <label>Assignment 4:</label>
-                <input type="file" name="file4" accept=".pdf">
-                <label>Assignment 5:</label>
-                <input type="file" name="file5" accept=".pdf">
-                <button type="submit">Submit</button>
+            <form method="post" enctype="multipart/form-data">
+                <div class="assignment">
+                    <label>Assignment 1:</label>
+                    {% if not submitted[0] %}
+                        <input type="file" name="file1" accept=".pdf">
+                        <button type="submit" name="submit1">Submit</button>
+                    {% else %}
+                        <p>Submitted on: {{ submitted[0] }}</p>
+                        <span>Submitted</span>
+                    {% endif %}
+                </div>
+                <div class="assignment">
+                    <label>Assignment 2:</label>
+                    {% if not submitted[1] %}
+                        <input type="file" name="file2" accept=".pdf">
+                        <button type="submit" name="submit2">Submit</button>
+                    {% else %}
+                        <p>Submitted on: {{ submitted[1] }}</p>
+                        <span>Submitted</span>
+                    {% endif %}
+                </div>
+                <div class="assignment">
+                    <label>Assignment 3:</label>
+                    {% if not submitted[2] %}
+                        <input type="file" name="file3" accept=".pdf">
+                        <button type="submit" name="submit3">Submit</button>
+                    {% else %}
+                        <p>Submitted on: {{ submitted[2] }}</p>
+                        <span>Submitted</span>
+                    {% endif %}
+                </div>
+                <div class="assignment">
+                    <label>Assignment 4:</label>
+                    {% if not submitted[3] %}
+                        <input type="file" name="file4" accept=".pdf">
+                        <button type="submit" name="submit4">Submit</button>
+                    {% else %}
+                        <p>Submitted on: {{ submitted[3] }}</p>
+                        <span>Submitted</span>
+                    {% endif %}
+                </div>
+                <div class="assignment">
+                    <label>Assignment 5:</label>
+                    {% if not submitted[4] %}
+                        <input type="file" name="file5" accept=".pdf">
+                        <button type="submit" name="submit5">Submit</button>
+                    {% else %}
+                        <p>Submitted on: {{ submitted[4] }}</p>
+                        <span>Submitted</span>
+                    {% endif %}
+                </div>
             </form>
+        </div>
             <p>{{ msg }}</p>
         </div>
     </div>
