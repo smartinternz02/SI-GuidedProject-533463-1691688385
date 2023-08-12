@@ -17,9 +17,10 @@ conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=fbd88901-ebdb-4a4f-a32e-9822b9fb2
 print(conn)
 print("Connection Successfull")
 
-COS_ENDPOINT = "https://s3.tok.ap.cloud-object-storage.appdomain.cloud"
+COS_ENDPOINT = "s3.jp-tok.cloud-object-storage.appdomain.cloud"
 COS_API_KEY_ID = "MyX-mvA9jC3Nd6IZdsLRIg8EMLZXW4T6pjMx50nKfxCt"
-COS_INSTANCE_CRN = "crn:v1:bluemix:public:cloud-object-storage:global:a/ce2c0eb98c754e8287f7b5f407af741b:8502b471-4589-4c6c-af13-3ef1bb7f87c4::"
+COS_INSTANCE_CRN = "crn:v1:bluemix:public:cloud-object-storage:global:a/ce2c0eb98c754e8287f7b5f407af741b:8502b471-4589-4c6c-af13-3ef1bb7f87c4:bucket:prashantstudent"
+BUCKET_NAME = "prashantstudent"
 
 @app.route("/")
 def index():
@@ -183,7 +184,7 @@ def sassignment():
                 print(filepath)
                 cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT)
                 print(cos)
-                cos.upload_file(Filename=filepath, Bucket='prashantstudent', Key=u + str(x) + ".pdf")
+                cos.upload_file(Filename=filepath, Bucket=BUCKET_NAME, Key=u + str(x) + ".pdf")
                 
                 ts = datetime.datetime.now()
                 t = ts.strftime("%Y-%m-%d %H:%M:%S")
