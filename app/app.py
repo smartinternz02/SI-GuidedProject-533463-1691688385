@@ -180,7 +180,7 @@ def sassignment():
                 basepath = os.path.dirname(__file__)
                 filepath = os.path.join(basepath, 'uploads', u + str(x) + ".pdf")
                 f.save(filepath)
-
+                print(filepath)
                 cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT)
                 print(cos)
                 cos.upload_file(Filename=filepath, Bucket='prashantstudent', Key=u + str(x) + ".pdf")
