@@ -17,7 +17,7 @@ conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=fbd88901-ebdb-4a4f-a32e-9822b9fb2
 print(conn)
 print("Connection Successfull")
 
-COS_ENDPOINT = "s3.jp-tok.cloud-object-storage.appdomain.cloud"
+COS_ENDPOINT = "https://s3.tok.ap.cloud-object-storage.appdomain.cloud"
 COS_API_KEY_ID = "MyX-mvA9jC3Nd6IZdsLRIg8EMLZXW4T6pjMx50nKfxCt"
 COS_INSTANCE_CRN = "crn:v1:bluemix:public:cloud-object-storage:global:a/ce2c0eb98c754e8287f7b5f407af741b:8502b471-4589-4c6c-af13-3ef1bb7f87c4:bucket:prashantstudent"
 BUCKET_NAME = "prashantstudent"
