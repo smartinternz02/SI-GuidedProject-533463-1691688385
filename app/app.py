@@ -213,7 +213,7 @@ def sassignment():
                         ibm_db.execute(stmt)
 
         msg = "Uploading Successful"
-        return render_template("studentsubmit.html", msg=msg, datetime=subtime, marks=ma)
+        return render_template("studentsubmit.html", submitted=submitted, msg=msg, datetime=subtime, marks=ma)
     
     return render_template("studentsubmit.html", submitted=submitted, datetime=subtime, marks=ma)
 
