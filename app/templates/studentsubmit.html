@@ -38,25 +38,6 @@
             </form>
             <p>{{ msg }}</p>
         </div>
-        
-
-        <div class="submission-history">
-            <h2>Submission History</h2>
-            <table>
-                <tr>
-                    <th>Assignment</th>
-                    <th>Submission Time</th>
-                    <th>Marks</th>
-                </tr>
-                {% for index, time, marks in datetime %}
-                <tr>
-                    <td>Assignment {{ index + 1 }}</td>
-                    <td>{{ time }}</td>
-                    <td>{{ marks }}</td>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>
     </div>
 </body>
 </html>
