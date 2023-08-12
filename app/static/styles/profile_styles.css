@@ -101,7 +101,11 @@ body {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
+<<<<<<< Updated upstream
     max-width: 800px; /* Adjust the max-width as needed */
+=======
+    max-width: 800px;
+>>>>>>> Stashed changes
     margin: 0 auto;
 }
 
