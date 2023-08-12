@@ -172,7 +172,7 @@ def sassignment():
     print(subtime)
     print(ma)
     
-    submitted = [True if t else False for t in subtime]
+    submitted = [t if t else None for t in subtime]
 
     if request.method == "POST":
         for x in range(1, 6):  # Changed range to 1-6 for all 5 assignments
