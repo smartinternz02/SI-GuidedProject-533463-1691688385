@@ -180,14 +180,6 @@ def sassignment():
             if y in request.files:
                 f = request.files[y]
                 if f.filename != '':
-                    basepath = os.path.dirname(__file__)
-                    filepath = os.path.join(basepath, 'uploads', u + str(x) + ".pdf")
-                    f.save(filepath)
-                    print(filepath)
-                    cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT)
-                    print(cos)
-                    cos.upload_file(Filename=filepath, Bucket=BUCKET_NAME, Key=u + str(x) + ".pdf")
-                    
                     ts = datetime.datetime.now()
                     t = ts.strftime("%Y-%m-%d %H:%M:%S")
                     sql1 = "SELECT * FROM SUBMIT WHERE STUDENTNAME = ? AND ASSIGNMENTNUM = ?"
@@ -212,10 +204,14 @@ def sassignment():
                         ibm_db.bind_param(stmt, 3, x)
                         ibm_db.execute(stmt)
 
+                    cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT)
+                    cos.upload_fileobj(f, BUCKET_NAME, u + str(x) + ".pdf")
+                    
         msg = "Uploading Successful"
         return render_template("studentsubmit.html", submitted=submitted, msg=msg, datetime=subtime, marks=ma)
     
     return render_template("studentsubmit.html", submitted=submitted, datetime=subtime, marks=ma)
+
 
 @app.route("/studentlist")
 def studentlist():
