@@ -30,6 +30,19 @@
             {% endfor %}
         </ul>
     </div>
-</div>
+    
+    <div class="assignment-list">
+        <h2>Assignments for {{ student_name }}</h2>
+        <ul>
+            {% for assignment in assignments %}
+            <li>
+                {{ assignment.name }} - {{ assignment.status }}
+                {% if assignment.status == "Not Submitted" %}
+                <a href="#">Submit</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
-</html>
+</html>    
