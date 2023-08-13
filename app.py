@@ -8,7 +8,7 @@ import random
 import string
 import datetime
 import requests
-
+#boombot
 app = Flask(__name__)
 app.secret_key = 'a'
 conn = ibm_db.connect("DATABASE=bludb; HOSTNAME=fbd88901-ebdb-4a4f-a32e-9822b9fb237b.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud; PORT=32731; UID=yms88774;PASSWORD=u9eRWpksHM33mXZd; SECURITY=SSL;SSLServerCertificate = DigiCertGlobalRootCA.crt", "", "")
