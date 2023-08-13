@@ -19,18 +19,12 @@
             <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
         </div>
     </div>
-    <div class="assignment-form">
-        <form>
-            <label for="studentSelect">Select a Student:</label>
-            <select id="studentSelect">
-                {% for name in names %}
-                <option value="{{ name }}">{{ name }}</option>
-                {% endfor %}
-            </select>
-            <a href="#" class="submissions-btn">Submissions</a>
-        </form>
+    <div class="student-list">
         {% for name in names %}
-        <a href="/facultymarks/{{ name }}" class="student-submissions-btn">{{ name }} Submissions</a>
+        <div class="student-card">
+            <div class="student-name">{{ name }}</div>
+            <a href="/facultymarks/{{ name }}" class="show-assignments-btn">Show Assignments</a>
+        </div>
         {% endfor %}
     </div>
 </div>
