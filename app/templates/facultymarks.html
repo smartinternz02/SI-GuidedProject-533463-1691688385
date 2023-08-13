@@ -1,48 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Faculty Marks</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Student List</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Course Project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/styles/profile_styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/login/student">Student Login</a></li>
-                <li><a href="/login/professor">Professor Login</a></li>
-                <li><a href="/login/admin">Admin Login</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Faculty Marks</h1>
-        <h2>Student: John Doe</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Assignment</th>
-                    <th>Submission Date</th>
-                    <th>Download</th>
-                    <th>Marks</th>
-                    <th>Update</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Assignment 1</td>
-                    <td>August 10, 2023 10:30 AM</td>
-                    <td><a href="{{ url_for('static', filename='uploads/assignment1.pdf') }}" target="_blank">Download</a></td>
-                    <td><input type="number" min="0" max="100"></td>
-                    <td><button>Update</button></td>
-                </tr>
-                <!-- Add more assignment entries and marks as needed -->
-            </tbody>
-        </table>
-    </main>
-    <footer>
-        <p>&copy; 2023 Smart Assignment</p>
-    </footer>
+    <div class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='Faculty_logo.png') }}" alt="Admin Logo">
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('aprofile') }}" class="profile-button">Profile</a>
+            <a href="{{ url_for('studentlist') }}" class="register-button">Marks</a>
+            <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+        </div>
+    </div>
+    <div class="faculty-marks">
+        {% for f in file %}
+        <div class="submission-card">
+            <div class="submission-details">
+                <div class="submission-info">
+                    <p>Assignment Number: {{ f[-5] }}</p>
+                    <p>Submission Time: {{ datetime[loop.index0] }}</p>
+                </div>
+                <a href="{{ f }}" class="file-link" target="_blank">Download File</a>
+            </div>
+            <div class="mark-update">
+                <label for="mark{{ loop.index0 }}">Marks:</label>
+                <input type="number" class="mark-input" id="mark{{ loop.index0 }}" name="mark{{ loop.index0 }}">
+                <button class="update-btn" onclick="updateMarks('{{ f[-5] }}')">Update</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    function updateMarks(assignmentNum) {
+        const markInput = document.getElementById(`mark${assignmentNum}`);
+        const markValue = markInput.value;
+
+        fetch(`/marksupdate/${assignmentNum}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `mark=${markValue}`,
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+            location.reload(); // Refresh the page to update marks
+        })
+        .catch(error => console.error('Error updating marks:', error));
+    }
+</script>
 </body>
 </html>

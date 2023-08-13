@@ -166,3 +166,51 @@ body {
 .show-assignments-btn:hover {
     background-color: #0056b3;
 }
+
+.faculty-marks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submission-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 600px;
+}
+
+.submission-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.submission-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.file-link {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.mark-input {
+    width: 50px;
+}
+
+.update-btn {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.update-btn:hover {
+    background-color: #0056b3;
+}
