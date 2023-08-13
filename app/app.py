@@ -32,7 +32,16 @@ def contact():
 
 @app.route("/studentprofile")
 def sprofile():
-    return render_template("studentprofile.html")
+    if 'Loggedin' in session and session['Loggedin']:
+        msg = "Welcome to your Student Profile!"
+        user_email = session['email']
+        user_name = session['name']
+        user_username = session['username']
+        user_role = session['role']
+        return render_template("studentprofile.html", msg=msg, email=user_email, name=user_name, username=user_username, role=user_role)
+    else:
+        return render_template("login.html")
+
 
 @app.route("/adminprofile")
 def aprofile():
