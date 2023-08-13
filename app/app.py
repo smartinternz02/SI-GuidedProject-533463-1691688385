@@ -243,27 +243,17 @@ def marksassign(stdname):
     global g
     global file
     da = []
+    prefix = "prashantstudent/" + stdname
+
     cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT) 
-    output = cos.list_objects(Bucket=BUCKET_NAME, Prefix= "prashantstudent/" + stdname)
-    keys = [obj["Key"] for obj in output.get("Contents", [])]
+    output = cos.list_objects(Bucket=BUCKET_NAME, Prefix=prefix)
     output
     print(output)
-    
-    l = []
-    for i in range(0,len(output['Contents'])):
-        j = output['Contents'][i]['Key']
-        l.append(j)
-    l
-    print(l)
+
+    l = [obj["Key"] for obj in output.get("Contents", [])]
     u = stdname
-    print(len(u))
-    print(len(l))
-    n = []
-    for i in range(0, len(l)):
-        for j in range(0,len(u)):
-            if u[j] == l[i][j]:
-                n.append(l[i])
-    
+    n = [filename for filename in l if filename.endswith(".pdf")]
+
     file = set(n)
     file = list(file)
     print(file)
