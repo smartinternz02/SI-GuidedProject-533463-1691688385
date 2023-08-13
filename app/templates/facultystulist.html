@@ -20,16 +20,16 @@
         </div>
     </div>
     <div class="student-list">
-        {% for name in names %}
-        <div class="student-card">
-            <div class="student-name">{{ name }}</div>
-            <a href="/studentlist/{{ name }}" class="show-assignments-btn">Show Assignments</a>
-        </div>
-        {% endfor %}
+        <h2>Student List</h2>
+        <ul>
+            {% for student in names %}
+            <li>
+                {{ student }}
+                <a href="{{ url_for('studentlist', student_name=student) }}" class="show-assignments">Show Assignments</a>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
 </body>
 </html>
-
-
-
