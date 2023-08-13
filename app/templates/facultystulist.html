@@ -26,7 +26,7 @@
                 {% for name in names %}
                     <li>
                         {{ name }}
-                        <a href="{{ url_for('marksassign', student=name) }}" class="assignment-button">Show Assignments</a>
+                        <a href="{{ url_for('marksassign', stdname=name) }}" class="assignment-button">Show Assignments</a>
                     </li>
                 {% endfor %}
             </ul>
@@ -34,3 +34,8 @@
     </div>
 </body>
 </html>
+
+
+
+
+
