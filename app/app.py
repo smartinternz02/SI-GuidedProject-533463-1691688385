@@ -217,22 +217,6 @@ def sassignment():
     
     return render_template("studentsubmit.html", submitted=submitted, datetime=subtime, marks=ma)
 
-@app.route("/delete_submission/<int:assignment>")
-def delete_submission(assignment):
-    u = Username.strip()
-    sql = "DELETE FROM SUBMIT WHERE STUDENTNAME = ? AND ASSIGNMENTNUM = ?"
-    stmt = ibm_db.prepare(conn, sql)
-    ibm_db.bind_param(stmt, 1, u)
-    ibm_db.bind_param(stmt, 2, assignment)
-    ibm_db.execute(stmt)
-    
-    # Delete the file from object storage
-    cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT)
-    cos.delete_object(Bucket=BUCKET_NAME, Key=u + str(assignment) + ".pdf")
-    
-    return render_template("studentsubmit.html")
-
-
 @app.route("/studentlist")
 def studentlist():
     data = []
