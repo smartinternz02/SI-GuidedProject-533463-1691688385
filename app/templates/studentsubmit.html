@@ -70,6 +70,25 @@
                     {% endif %}
                 </div>
             </form>
+            {% extends "base.html" %}
+            {% block content %}
+            <div class="assignment-list">
+                <form method="post" enctype="multipart/form-data">
+                    {% for i in range(1, 6) %}
+                    <div class="assignment">
+                        <label>Assignment {{ i }}:</label>
+                        {% if submitted[i - 1] %}
+                        <p>Submitted on: {{ submitted[i - 1] }}</p>
+                        <a href="{{ url_for('delete_submission', assignment=i) }}">Delete</a>
+                        {% else %}
+                        <input type="file" name="file{{ i }}" accept=".pdf" required>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            {% endblock %}
         </div>
             <p>{{ msg }}</p>
         </div>
