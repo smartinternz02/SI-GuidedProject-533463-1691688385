@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: std-app
-          image: placeholder-image:latest
+          image: prashantlakkadwala/ibm-final:final-1
           ports:
             - containerPort: 5000
