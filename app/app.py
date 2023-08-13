@@ -244,7 +244,8 @@ def marksassign(stdname):
     global file
     da = []
     cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT) 
-    output = cos.list_objects(Bucket=BUCKET_NAME, )
+    output = cos.list_objects(Bucket=BUCKET_NAME, Prefix= "prashantstudent/" + stdname)
+    keys = [obj["Key"] for obj in output.get("Contents", [])]
     output
     print(output)
     
