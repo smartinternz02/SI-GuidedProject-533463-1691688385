@@ -244,6 +244,17 @@ def marksassign(stdname):
     global file
     da = []
     cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT)
+    # List objects in the bucket
+    objects = cos.list_objects(Bucket=BUCKET_NAME)['Contents']
+
+    # Check if the specified key exists
+    key_to_check = "your-object-key-here"
+    key_exists = any(obj['Key'] == key_to_check for obj in objects)
+
+    if key_exists:
+        print(f"Object with key '{key_to_check}' exists in the bucket.")
+    else:
+        print(f"Object with key '{key_to_check}' does not exist in the bucket.")
     output = cos.list_objects(Bucket=BUCKET_NAME)
     output
     print(output)
