@@ -255,6 +255,7 @@ def marksassign(stdname):
         print(f"Object with key '{key_to_check}' exists in the bucket.")
     else:
         print(f"Object with key '{key_to_check}' does not exist in the bucket.")
+        
     output = cos.list_objects(Bucket=BUCKET_NAME)
     output
     print(output)

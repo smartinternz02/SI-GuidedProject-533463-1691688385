@@ -20,17 +20,17 @@
         </div>
     </div>
     <div class="content">
-        <h2>Faculty Student List</h2>
-        <div class="student-list">
-            <ul>
-                {% for name in names %}
-                    <li>
-                        {{ name }}
-                        <a href="{{ url_for('marksassign', stdname=name) }}" class="assignment-button">Show Assignments</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
+        <h2>Student List</h2>
+        <ul>
+            {% for name in names %}
+            <li>
+                {{ name }}
+                <form action="{{ url_for('marksassign', stdname=name) }}" method="post">
+                    <button type="submit">Show Assignments</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>
