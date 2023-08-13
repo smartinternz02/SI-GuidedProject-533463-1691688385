@@ -243,32 +243,42 @@ def marksassign(stdname):
     global g
     global file
     da = []
-
-    cos = ibm_boto3.client(
-        "s3",
-        ibm_api_key_id=COS_API_KEY_ID,
-        ibm_service_instance_id=COS_INSTANCE_CRN,
-        config=Config(signature_version="oauth"),
-        endpoint_url=COS_ENDPOINT
-    )
-
-    prefix = stdname  # Use the student's name as the prefix
-    output = cos.list_objects(Bucket=BUCKET_NAME, Prefix=prefix)
+    cos = ibm_boto3.client("s3", ibm_api_key_id=COS_API_KEY_ID, ibm_service_instance_id=COS_INSTANCE_CRN, config=Config(signature_version="oauth"), endpoint_url=COS_ENDPOINT) 
+    output = cos.list_objects(Bucket=BUCKET_NAME, )
+    output
+    print(output)
     
-    file = [obj['Key'] for obj in output.get('Contents', [])]
+    l = []
+    for i in range(0,len(output['Contents'])):
+        j = output['Contents'][i]['Key']
+        l.append(j)
+    l
+    print(l)
+    u = stdname
+    print(len(u))
+    print(len(l))
+    n = []
+    for i in range(0, len(l)):
+        for j in range(0,len(u)):
+            if u[j] == l[i][j]:
+                n.append(l[i])
+    
+    file = set(n)
+    file = list(file)
+    print(file)
+    print(len(file))
     g = len(file)
-    
     sql = "SELECT SUBMITTIME from SUBMIT WHERE STUDENTNAME=?"
     stmt = ibm_db.prepare(conn, sql)
-    ibm_db.bind_param(stmt, 1, stdname)
+    ibm_db.bind_param(stmt, 1, u)
     ibm_db.execute(stmt)
     m = ibm_db.fetch_tuple(stmt)
     while m != False:
         da.append(m[0])
         m = ibm_db.fetch_tuple(stmt)
 
+    print(da)
     return render_template("facultymarks.html", file=file, g=g, marks=0, datetime=da)
-
 
 @app.route("/marksupdate/<string:anum>", methods=['POST', 'GET'])
 def marksupdate(anum):
