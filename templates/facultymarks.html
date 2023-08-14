@@ -83,7 +83,7 @@
             <td> {{i + 1}} </td>
             <td> Operating System Assignment {{i + 1}} </td>
             <td> 25/10/2022 </td>
-            <td> <a href = "https://s3.jp-tok.cloud-object-storage.appdomain.cloud/studentassignmentsb/{{ file[i] }}" target="_blank"> <button class="btn btn-primary"> download </button> </td>
+            <td> <a href = "https://s3.jp-tok.cloud-object-storage.appdomain.cloud/studentforprashant/{{ file[i] }}" target="_blank"> <button class="btn btn-primary"> download </button> </td>
             <td> {{ datetime[i] }} </td>
             <td> {{ marks[i] }}</td>
             <form action="{{ url_for('marksupdate', anum = i+1 )}}" method = 'post'>
