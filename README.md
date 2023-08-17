@@ -53,7 +53,8 @@ From a business perspective, Smart Assignment stands to elevate the university's
 ### User Registered Successfully
 ![Registered Success](https://github.com/smartinternz02/SI-GuidedProject-533463-1691688385/assets/131831457/7c2e50b4-55f0-42ff-9501-1d68640cf6c9)
 ### Github Repo Hosted on OpenShift Sandbox
-![Openshift Sandbox](https://github.com/smartinternz02/SI-GuidedProject-533463-1691688385/assets/131831457/bac38dc4-735b-4bf9-8b38-ff6ae72982f3)
+![OpenShift Dev Sandbox](https://github.com/smartinternz02/SI-GuidedProject-533463-1691688385/assets/131831457/d91ebb77-3b4e-4f4d-b9d5-722d385fcd15)
+
 
 
 
