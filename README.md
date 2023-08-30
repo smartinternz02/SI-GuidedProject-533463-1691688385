@@ -3,8 +3,6 @@ Mentorship Program - Smart Assignment Engine
 
 # Dr. Prashant Lakkadwala, AITR, Indore
 
-## The Project is Hosted at: https://si-guided-project-533463-1691688385-prashantlakkadwala19-dev.apps.sandbox-m3.1530.p1.openshiftapps.com/
-
 ## Problem Understanding:
 ### Specify The Business Problem:
 The Smart Assignment project addresses a prevalent business challenge within educational institutions—inefficient and fragmented assignment management processes. Current manual methods for creating, submitting, grading, and providing feedback on assignments consume valuable time and are susceptible to errors. This initiative leverages cutting-edge web development technologies to establish an automated and intelligent platform that enhances collaboration among students, teachers, and administrators. The project aims to optimize the efficiency and effectiveness of assignment management by providing a user-friendly interface that streamlines assignment-related tasks, fosters improved communication, and ultimately enhances educational outcomes.
